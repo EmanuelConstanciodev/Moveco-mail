@@ -5,7 +5,7 @@ const { validationResult } = require('express-validator')
 
 
 exports.mailer = async (req, res) => {
-    console.log(req.body)
+ 
     //Cheking for errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -16,9 +16,9 @@ exports.mailer = async (req, res) => {
 
     try {
         
-
-        const { email, name, description} = req.body
-        console.log(req.body)
+        // const values = JSON.parse(req)
+        const { email, name, description} = req.body.values
+        console.log(req.body.values)
 
         // Only needed if you don't have a real mail account for testing
         let testAccount = await nodemailer.createTestAccount();
