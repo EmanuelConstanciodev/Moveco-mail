@@ -17,8 +17,8 @@ exports.mailer = async (req, res) => {
     try {
         
         // const values = JSON.parse(req)
-        const { email, name, description} = req.body.values
-        console.log(req.body.values)
+        const { email, name, description} = req.body
+        console.log(req.body)
 
         // Only needed if you don't have a real mail account for testing
         let testAccount = await nodemailer.createTestAccount();
@@ -29,15 +29,15 @@ exports.mailer = async (req, res) => {
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-                user: 'emanuelconstancio.dev@gmail.com', // generated ethereal user
-                pass: 'lmoijnbaatzleikm', // generated ethereal password
+                user: 'vfm0932@gmail.com', // generated ethereal user
+                pass: 'bbbsyjunskgqfhfy', // generated ethereal password
             },
         });
 
         // send mail with defined transport object
         let info = await transporter.sendMail({
             from: `Consulta de  ${name}, ${email} `, // sender address
-            to: "emanuelconstancio.dev@gmail.com", // list of receivers
+            to: "vfm0932@gmail.com", // list of receivers
             subject: "Consulta", // Subject line
             text: `${description}`, // plain text body
             html:  `<b>Moveco</b> 
